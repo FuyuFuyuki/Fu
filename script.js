@@ -23,15 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let customStatus = "";
                 if (data.data.activities && data.data.activities.length > 0) {
-                    let customActivity = data.data.activities.find(activity => activity.type === 4); // Type 4 = Custom Status
+                    let customActivity = data.data.activities.find(activity => activity.type === 4);
                     if (customActivity && customActivity.state) {
                         if (customActivity.emoji) {
                             if (customActivity.emoji.id) {
-                                // Custom Discord emoji (server-specific)
                                 let emojiURL = `https://cdn.discordapp.com/emojis/${customActivity.emoji.id}.${customActivity.emoji.animated ? "gif" : "png"}`;
                                 customStatus = `<img src="${emojiURL}" alt="emoji" width="20" height="20" style="vertical-align: middle;"> ${customActivity.state}`;
                             } else {
-                                // Standard Unicode emoji
                                 customStatus = `${customActivity.emoji.name} ${customActivity.state}`;
                             }
                         } else {
@@ -52,4 +50,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchDiscordPresence();
     setInterval(fetchDiscordPresence, 60000);
+
+    // Cat Rain
+    function createCat() {
+        const cat = document.createElement("div");
+        cat.classList.add("cat");
+        cat.style.left = Math.random() * 100 + "vw";
+        cat.style.animationDuration = 2 + Math.random() * 3 + "s";
+        cat.style.opacity = Math.random() * 0.8 + 0.2;
+
+        document.getElementById("cat-rain").appendChild(cat);
+
+        setTimeout(() => {
+            cat.remove();
+        }, 5000);
+    }
+
+    setInterval(createCat, 300);
 });
