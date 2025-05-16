@@ -49,21 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(fetchDiscordPresence, 60000);
 
    document.addEventListener("DOMContentLoaded", function () {
-    // Simple Rain
-    function createRainDrop() {
-        const drop = document.createElement("div");
-        drop.classList.add("cat"); // Using same class for animation
-
-        drop.style.left = Math.random() * 100 + "vw";
-        drop.style.animationDuration = 1 + Math.random() * 2 + "s";
-        drop.style.opacity = Math.random() * 0.5 + 0.3;
-
-        document.getElementById("cat-rain").appendChild(drop);
-
-        setTimeout(() => {
-            drop.remove();
-        }, 4000);
-    }
-
-    setInterval(createRainDrop, 100);
 });
