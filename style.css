@@ -17,7 +17,6 @@ body {
     overflow: hidden;
 }
 
-/* Background Image with Blur */
 body::before {
     content: "";
     position: absolute;
@@ -153,7 +152,6 @@ body::after {
     text-align: center;
 }
 
-/* Cat Rain Effect */
 #cat-rain {
     position: fixed;
     top: 0;
@@ -162,15 +160,16 @@ body::after {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 2;
+    z-index: 999;
 }
 
 .cat {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-image: url('https://media.tenor.com/kzbQo2nOnSgAAAAi/cat-jump.gif');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     animation: fall linear;
     pointer-events: none;
 }
@@ -186,7 +185,6 @@ body::after {
     }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .profile-card {
         width: 90%;
