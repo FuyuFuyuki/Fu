@@ -152,39 +152,6 @@ body::after {
     text-align: center;
 }
 
-/* Rain Effect */
-#cat-rain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.cat {
-    position: absolute;
-    width: 2px;
-    height: 15px;
-    background: rgba(255, 255, 255, 0.6); /* White translucent drops */
-    animation: fall linear;
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-50px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
-}
-
 @media (max-width: 768px) {
     .profile-card {
         width: 90%;
