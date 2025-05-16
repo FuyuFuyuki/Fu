@@ -152,6 +152,7 @@ body::after {
     text-align: center;
 }
 
+/* Rain Effect */
 #cat-rain {
     position: fixed;
     top: 0;
@@ -160,28 +161,27 @@ body::after {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 999;
+    z-index: 2;
 }
 
 .cat {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 2px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6); /* White translucent drops */
     animation: fall linear;
+    border-radius: 50%;
     pointer-events: none;
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(-50px);
         opacity: 1;
     }
     100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0.6;
+        transform: translateY(110vh);
+        opacity: 0;
     }
 }
 
