@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Discord presence
     async function fetchDiscordPresence() {
         try {
             let response = await fetch("https://api.lanyard.rest/v1/users/867658987418681374");
@@ -8,22 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 let statusText = "Unknown";
                 switch (data.data.discord_status) {
                     case "online":
-                        statusText = "Online 🟢";
-                        break;
+                        statusText = "Online 🟢"; break;
                     case "idle":
-                        statusText = "Idle 🌙";
-                        break;
+                        statusText = "Idle 🌙"; break;
                     case "dnd":
-                        statusText = "Do Not Disturb 🔴";
-                        break;
+                        statusText = "Do Not Disturb 🔴"; break;
                     case "offline":
-                        statusText = "Offline ⚫";
-                        break;
+                        statusText = "Offline ⚫"; break;
                 }
 
                 let customStatus = "";
                 if (data.data.activities && data.data.activities.length > 0) {
-                    let customActivity = data.data.activities.find(activity => activity.type === 4);
+                    let customActivity = data.data.activities.find(a => a.type === 4);
                     if (customActivity && customActivity.state) {
                         if (customActivity.emoji) {
                             if (customActivity.emoji.id) {
@@ -51,13 +48,24 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDiscordPresence();
     setInterval(fetchDiscordPresence, 60000);
 
-    // Cat Rain
+    // Cat rain
+    const catGifs = [
+        'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
+        'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
+        'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif',
+        'https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif',
+        'https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif'
+    ];
+
     function createCat() {
         const cat = document.createElement("div");
         cat.classList.add("cat");
         cat.style.left = Math.random() * 100 + "vw";
         cat.style.animationDuration = 2 + Math.random() * 3 + "s";
         cat.style.opacity = Math.random() * 0.8 + 0.2;
+
+        const randomCat = catGifs[Math.floor(Math.random() * catGifs.length)];
+        cat.style.backgroundImage = `url('${randomCat}')`;
 
         document.getElementById("cat-rain").appendChild(cat);
 
