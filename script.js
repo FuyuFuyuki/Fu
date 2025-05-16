@@ -48,31 +48,22 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDiscordPresence();
     setInterval(fetchDiscordPresence, 60000);
 
-    // Cat rain
-    const catGifs = [
-        'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
-        'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
-        'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif',
-        'https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif',
-        'https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif'
-    ];
+   document.addEventListener("DOMContentLoaded", function () {
+    // Simple Rain
+    function createRainDrop() {
+        const drop = document.createElement("div");
+        drop.classList.add("cat"); // Using same class for animation
 
-    function createCat() {
-        const cat = document.createElement("div");
-        cat.classList.add("cat");
-        cat.style.left = Math.random() * 100 + "vw";
-        cat.style.animationDuration = 2 + Math.random() * 3 + "s";
-        cat.style.opacity = Math.random() * 0.8 + 0.2;
+        drop.style.left = Math.random() * 100 + "vw";
+        drop.style.animationDuration = 1 + Math.random() * 2 + "s";
+        drop.style.opacity = Math.random() * 0.5 + 0.3;
 
-        const randomCat = catGifs[Math.floor(Math.random() * catGifs.length)];
-        cat.style.backgroundImage = `url('${randomCat}')`;
-
-        document.getElementById("cat-rain").appendChild(cat);
+        document.getElementById("cat-rain").appendChild(drop);
 
         setTimeout(() => {
-            cat.remove();
-        }, 5000);
+            drop.remove();
+        }, 4000);
     }
 
-    setInterval(createCat, 300);
+    setInterval(createRainDrop, 100);
 });
