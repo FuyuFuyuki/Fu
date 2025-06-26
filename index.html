@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Website</title>
+    <title>FuDayooooooo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Load Gmail API -->
+<script src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<!-- Load Google Identity Services -->
+<script src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </head>
+<script src="https://apis.google.com/js/api.js"></script>
 <body>
 
     <div class="container">
         <div class="profile-card">
             <div class="profile-img">
-                <img src="ava.gif" alt="Profile Picture">
+                <img src="avatar.gif" alt="Profile Picture">
             </div>
             <h2 class="name">Fuyuki【ふゆふゆき】</h2>
-            <p class="status">Food???</p>
+            <p class="status">Stoopid</p>
             <div class="line"></div>
             <p class="roles">Noob Dev • Hikikomori? • Mapper</p>
             <p class="bio">FuFuFuFuFu</p>
@@ -23,7 +28,7 @@
             <div class="social-icons">
                 <a href="https://www.youtube.com/@FuyukiSaber" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://www.tiktok.com/@fuyufuyuki08" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://discord.gg/4dPCX4By" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://discord.gg/cgR2AWpHjf" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
             </div>
             <div class="line"></div>
 
@@ -33,6 +38,25 @@
             </div>
         </div>
     </div>
+<div id="music-player" class="draggable">
+    <div class="music-header">
+        <span>🎵 Now Playing</span>
+    </div>
+    <div class="music-body">
+        <img src="cover.jpg" alt="Cover" class="cover">
+        <div class="music-info">
+            <strong id="song-title">[MV] TAK - '도깨비꽃' feat. 텐코 시부키</strong>
+            <audio id="audio-player" controls>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+</div>
+<button id="authorize-button">Login with Gmail</button>
+<div id="gmail-output"></div>
     <script src="script.js"></script>
+    <script>
+</script>
 </body>
 </html>
