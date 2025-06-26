@@ -17,6 +17,7 @@ body {
     overflow: hidden;
 }
 
+/* Background Image with Blur */
 body::before {
     content: "";
     position: absolute;
@@ -152,6 +153,19 @@ body::after {
     text-align: center;
 }
 
+/* Cat Rain Effect */
+#cat-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .profile-card {
         width: 90%;
@@ -202,4 +216,88 @@ body::after {
         height: 30px;
         font-size: 16px;
     }
+}
+/* Optional: Flickering glow for the text */
+@keyframes flicker {
+    0%, 80% { opacity: 0.8; text-shadow: 0 0 5px white; }
+    45% { opacity: 1; text-shadow: 0 0 15px white; }
+}
+.music-header {
+    background: #a682d2;
+    color: white;
+    padding: 8px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+}
+.cover {
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #000000;
+}
+
+#music-player {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#music-player.visible {
+    display: block;
+    opacity: 0.8;
+    transform: translateY(0);
+}
+#music-player {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 380px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    cursor: move;
+    padding: 8px;
+    display: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#music-player.visible {
+    display: block;
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.music-header {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+.music-body {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+#song-title {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+    font-weight: 400;
 }
